@@ -1,6 +1,5 @@
 #include "Car.h"
 #include <iostream>
-#include <iomanip>
 #include <deque>
 #include <ctime>
 #include <cstdlib>
@@ -20,6 +19,7 @@ int main() {
 
     cout << "Initial queue:" << endl;
     for (int i = 0; i < queue.size(); ++i) {
+        cout << "    ";
         queue[i].print();
     }
     
@@ -43,6 +43,7 @@ int main() {
             cout << "    " << "Empty" << endl;
         } else {
             for (int i = 0; i < queue.size(); ++i) {
+                cout << "    ";
                 queue[i].print();
             }
         }
