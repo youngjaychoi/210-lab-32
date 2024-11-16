@@ -1,5 +1,6 @@
 #include "Car.h"
 #include <iostream>
+#include <iomanip>
 #include <deque>
 #include <ctime>
 #include <cstdlib>
@@ -18,27 +19,36 @@ int main() {
     }
 
     cout << "Initial queue:" << endl;
-    for (int i = 0; i < queue; ++i) {
+    for (int i = 0; i < queue.size(); ++i) {
         queue[i].print();
     }
     
     while (!queue.empty()) {
-        randomNum = rean() % 100  + 1;
+        randomNum = rand() % 100  + 1;
 
         cout << "Time: " << time << " Operation: ";
         if (randomNum <= 55) {
             cout << "Car paid: ";
             queue.front().print();
             queue.pop_front();
+        } else {
+            Car newCar;
+            cout << "Joined lane: ";
+            newCar.print();
+            queue.push_back(newCar);
         }
+        
+        cout << "Queue:" << endl;
+        if (queue.empty()) {
+            cout << "    " << "Empty" << endl;
+        } else {
+            for (int i = 0; i < queue.size(); ++i) {
+                queue[i].print();
+            }
         }
-    }
 
-
-
-
-
-
+        ++time;
+        }
 
     return 0;
 }
